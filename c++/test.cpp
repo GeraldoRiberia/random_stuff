@@ -3,9 +3,8 @@ using namespace std;
 
 int main()
 {   
-    int a = 30; int ptr;
-    int*ptr;
-    ptr = &a;
-    cout << a;
+    for(int i =1; i > 0 ; i++){
+        cout << "Hi";
+    }
     return 0;
 }
