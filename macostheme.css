@@ -1,0 +1,45 @@
+/**
+ * @name Dark Discord
+ * @description Discord but dark
+ * @author Snapperito
+ * @version 1.2.1
+ * @authorId 431883840483491850
+ * @invite pmpVeAEsxz
+ * @website https://github.com/Snappercord/Dark-Discord/
+ * @source https://snappercord.github.io/dark-discord/src/source.css
+ */
+@import url("https://snappercord.github.io/dark-discord/src/source.css");
+
+.theme-dark,
+.theme-light,
+:root {
+    --background-primary: #363636;
+    --background-secondary: #363636;
+    --background-secondary-alt: #363636;
+    --background-tertiary: #363636;
+    --background-accent: #242424;
+    --background-floating: #000000;
+    --background-modifier-hover: rgba(255, 255, 255, 0.01);
+    --background-modifier-active: rgba(255, 255, 255, 0.03);
+    --background-modifier-selected: rgba(255, 255, 255, 0.04);
+    --background-modifier-accent: hsla(0, 0%, 100%, 0.06);
+    --channeltextarea-background: var(--background-accent);
+    --deprecated-card-bg: rgba(0, 0, 0, 0.2);
+    --deprecated-card-editable-bg: rgba(0, 0, 0, 0.1);
+    --deprecated-text-input-border-disabled: var(--background-tertiary);
+    --activity-card-background: var(--background-primary);
+    --channels-default: #9f9f9f;
+    --text-muted: #b6b6b6;
+    --text-normal: #fbfbfb;
+    --interactive-normal: #c8c8c8;
+    --interactive-hover: #dcddde;
+    --interactive-active: #fff;
+    --interactive-muted: #747474;
+    --header-secondary: #c9c9c9;
+    --toast-background: var(--background-primary);
+    --toast-header: var(--background-tertiary);
+    --toast-contents: var(--background-secondary);
+    --toast-box-shadow: rgba(0, 0, 0, .2);
+    --toast-border: var(--background-tertiary);
+    --offline-color: rgb(60, 60, 60);
+}
