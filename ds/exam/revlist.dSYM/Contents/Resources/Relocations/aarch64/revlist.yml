@@ -1,0 +1,12 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/vs-code-projects/ds/exam/revlist'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _reverse, symObjAddr: 0x0, symBinAddr: 0x100003CB4, symSize: 0xAC }
+  - { offsetInCU: 0x4D, offset: 0x4D, size: 0x8, addend: 0x0, symName: _start, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offsetInCU: 0x8F, offset: 0x8F, size: 0x8, addend: 0x0, symName: _last, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0xA3, offset: 0xA3, size: 0x8, addend: 0x0, symName: _reverse, symObjAddr: 0x0, symBinAddr: 0x100003CB4, symSize: 0xAC }
+  - { offsetInCU: 0xF1, offset: 0xF1, size: 0x8, addend: 0x0, symName: _input, symObjAddr: 0xAC, symBinAddr: 0x100003D60, symSize: 0xAC }
+  - { offsetInCU: 0x115, offset: 0x115, size: 0x8, addend: 0x0, symName: _print, symObjAddr: 0x158, symBinAddr: 0x100003E0C, symSize: 0xA0 }
+  - { offsetInCU: 0x147, offset: 0x147, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1F8, symBinAddr: 0x100003EAC, symSize: 0x94 }
+...

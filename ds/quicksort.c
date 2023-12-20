@@ -32,7 +32,7 @@ void qsort(int a[],int l, int h){
 
 
 
-void main(){
+int main(){
     int n;
     printf("Enter limit of array");
     scanf("%d",&n);
@@ -47,6 +47,6 @@ void main(){
         printf("%d  ",a[i]);
     }
 
-    
+    return 0;
     
 }

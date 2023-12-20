@@ -32,7 +32,7 @@ void display(int stk[], int n){
     printf("\n");
     }
 }
-void main(){
+int main(){
     int n,ch;
     printf("Enter size of stack : ");
     scanf("%d", &n);
@@ -55,4 +55,5 @@ void main(){
             default : printf("Invalid choice \n");
         }
     }
+    return 0;
 }
