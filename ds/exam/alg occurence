@@ -1,0 +1,13 @@
+algorithm ocurrence(arr[],size{
+        create array elcount with size n;
+        for( i from 0 to n-1){
+            elcount[i]= 0;
+        }
+
+        for( i from 0 to size-1){
+            if(arr[i] == a[j]{
+                elcount[i]
+            })
+        }
+        
+}

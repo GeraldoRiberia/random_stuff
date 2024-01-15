@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/vs-code-projects/ds/exam/polymult'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _insertTerm, symObjAddr: 0x0, symBinAddr: 0x100003BC0, symSize: 0xC0 }
+  - { offsetInCU: 0x7A, offset: 0x7A, size: 0x8, addend: 0x0, symName: _insertTerm, symObjAddr: 0x0, symBinAddr: 0x100003BC0, symSize: 0xC0 }
+  - { offsetInCU: 0xE4, offset: 0xE4, size: 0x8, addend: 0x0, symName: _multiplyPolynomials, symObjAddr: 0xC0, symBinAddr: 0x100003C80, symSize: 0xC0 }
+  - { offsetInCU: 0x16E, offset: 0x16E, size: 0x8, addend: 0x0, symName: _displayPolynomial, symObjAddr: 0x180, symBinAddr: 0x100003D40, symSize: 0xA4 }
+  - { offsetInCU: 0x192, offset: 0x192, size: 0x8, addend: 0x0, symName: _freePolynomial, symObjAddr: 0x224, symBinAddr: 0x100003DE4, symSize: 0x54 }
+  - { offsetInCU: 0x1D2, offset: 0x1D2, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x278, symBinAddr: 0x100003E38, symSize: 0x108 }
+...

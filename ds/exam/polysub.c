@@ -4,7 +4,7 @@ struct node{
     int coeff;
     int exp;
     struct node *next;
-}*p=NULL,*last1=NULL,*q=NULL,*last2=NULL,*r=NULL,*last3=NULL;
+}*p=NULL,*last1=NULL,*q=NULL,*last2=NULL,*r=NULL,*last3=NULL,*r1 = NULL, *last4 = NULL;
 
 typedef struct node* node_;
 
@@ -29,9 +29,11 @@ void input(){
         node_ ptr = create_node(coeff,exp);
         if(p == NULL){
             p = ptr;
+            last1 = ptr;
         }
         else{
-            p->next = ptr;
+            last1->next = ptr;
+            last1 = ptr;
         }
         n--;
     }
@@ -46,21 +48,25 @@ void input(){
         node_ ptr = create_node(coeff,exp);
         if(q == NULL){
             q = ptr;
+            last2 = ptr;
         }
         else{
-            q->next = ptr;
+            last2->next = ptr;
+            last2 = ptr;
         }
         n--;
     }
 
 }
 
+
+
 void print(){
     node_ t = p;
-    printf("%dx%d ", p -> coeff, p -> exp);
+    printf("%dx^%d ", p -> coeff, p -> exp);
     t = t -> next;
     while (t!=NULL) {
-        printf("+ %dx%d ", t -> coeff, t -> exp);
+        printf("+ %dx^%d ", t -> coeff, t -> exp);
         t = t -> next;
     }
     printf("\n");
@@ -68,20 +74,50 @@ void print(){
     printf("%dx%d ", t -> coeff, t -> exp);
     t = t -> next;
     while (t!= NULL) {
-        printf("+ %dx%d ", t -> coeff, t -> exp);
-        t = t -> next;
-    }   
-    printf("\n");
-    t = r;
-    printf("%dx%d ", t -> coeff, t -> exp);
-    t = t -> next;
-    while (t!= NULL) {
-        printf("+ %dx%d ", t -> coeff, t -> exp);
+        printf("+ %dx^%d ", t -> coeff, t -> exp);
         t = t -> next;
     }   
     printf("\n");
 }
 
+void printr(){
+    node_ t = r1;
+    printf("%dx^%d ", t -> coeff, t -> exp);
+    t = t -> next;
+    while (t!= NULL) {
+        printf("+ %dx^%d ", t -> coeff, t -> exp);
+        t = t -> next;
+    }   
+    printf("\n");
+}
+
+void multiplyPolynomials() {
+    node_ poly1 = p;
+    node_ poly2 = q;
+    // Multiply each term of poly1 with each term of poly2
+    while (poly1 != NULL) {
+        node_ tempPoly2 = poly2;
+        while (tempPoly2 != NULL) {
+            int coeff = poly1->coeff * tempPoly2->coeff;
+            int exp = poly1->exp + tempPoly2->exp;
+            node_ ptr = create_node(coeff,exp);
+            
+            if(r1 == NULL){
+                r1 = ptr;
+                last4 = ptr;
+            }
+            else{
+                last4->next = ptr;
+                last4 = ptr;
+            }
+
+            tempPoly2 = tempPoly2->next;
+        }
+
+        poly1 = poly1->next;
+    }
+
+}
 
 void sub(){
     node_ t1=p,t2=q;
@@ -135,6 +171,7 @@ void sub(){
 }
 void main(){
     input();
-    sub();
     print();
+    multiplyPolynomials();
+    printr();
 }
