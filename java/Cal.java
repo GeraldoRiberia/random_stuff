@@ -11,8 +11,8 @@ class Cal extends JFrame implements ActionListener{
     }
     Cal(){
         setSize(400,300);
-        tx = new JTextField(30);
-        ty = new JTextField(30);
+        tx = new JTextField(10);
+        ty = new JTextField(10);
         tr = new JTextField(30);
         lx = new JLabel("Enter x");
         ly = new JLabel("Enter y");

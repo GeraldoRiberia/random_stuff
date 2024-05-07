@@ -1,119 +1,155 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
-#define TABLE_SIZE 10
-
-typedef struct {
-    char* key;
-    int value;
-} Entry;
-
-typedef struct {
-    Entry* entries[TABLE_SIZE];
-} HashTable;
-
-unsigned int hash(const char* key) {
-    unsigned int hashValue = 0;
-    while (*key) {
-        hashValue = (hashValue << 5) + *key++;
-    }
-    return hashValue % TABLE_SIZE;
+#include <stdlib.h>
+struct hash *hashTable = NULL;
+int tableSize=0;
+struct node {
+    int key, age;
+    char name[100];
+    struct node *next;
+};
+struct hash {
+    struct node *head;
+    int count;
+};
+struct node * createNode(int key, char *name, int age) {
+    struct node *newnode;
+    newnode = (struct node *) malloc(sizeof(struct node));
+    newnode->key = key;
+    newnode->age = age;
+    strcpy(newnode->name, name);
+    newnode->next = NULL;
+    return newnode;
 }
-
-void initializeTable(HashTable* table) {
-    for (int i = 0; i < TABLE_SIZE; i++) {
-        table->entries[i] = NULL;
+void insertToHash(int key, char *name, int age) {
+    int hashIndex = key % tableSize;
+    struct node *newnode = createNode(key, name, age);
+    if (!hashTable[hashIndex].head) {
+        hashTable[hashIndex].head = newnode;
+        hashTable[hashIndex].count = 1;
+        return;
     }
+    newnode->next = (hashTable[hashIndex].head);
+    hashTable[hashIndex].head = newnode;
+    hashTable[hashIndex].count++;
+    return;
 }
-
-void insert(HashTable* table, const char* key, int value) {
-    unsigned int index = hash(key);
-
-    while (table->entries[index] != NULL) {
-        // Linear probing: move to the next slot
-        index = (index + 1) % TABLE_SIZE;
+void deleteFromHash(int key) {
+    int hashIndex = key % tableSize, flag = 0;
+    struct node *temp, *myNode;
+    myNode = hashTable[hashIndex].head;
+    if (!myNode) {
+        printf("Given data is not present in hash Table!!\n");
+        return;
     }
-
-    Entry* newEntry = (Entry*)malloc(sizeof(Entry));
-    newEntry->key = strdup(key);
-    newEntry->value = value;
-
-    table->entries[index] = newEntry;
-}
-
-int search(HashTable* table, const char* key) {
-    unsigned int index = hash(key);
-
-    while (table->entries[index] != NULL) {
-        if (strcmp(table->entries[index]->key, key) == 0) {
-            return table->entries[index]->value;
+    temp = myNode;
+    while (myNode != NULL) {
+        if (myNode->key == key) {
+        flag = 1;
+        if (myNode == hashTable[hashIndex].head)
+            hashTable[hashIndex].head = myNode->next;
+        else
+            temp->next = myNode->next;
+        hashTable[hashIndex].count--;
+        free(myNode);
+        break;
         }
-
-        // Linear probing: move to the next slot
-        index = (index + 1) % TABLE_SIZE;
+        temp = myNode;
+        myNode = myNode->next;
     }
-
-    // Key not found
-    return -1;
+    if (flag)
+        printf("Data deleted successfully from Hash Table\n");
+    else
+        printf("Given data is not present in hash Table!!!!\n");
+    return;
 }
-
-void displayTable(HashTable* table) {
-    printf("\nHash Table:\n");
-    for (int i = 0; i < TABLE_SIZE; i++) {
-        if (table->entries[i] != NULL) {
-            printf("Index %d: Key = %s, Value = %d\n", i, table->entries[i]->key, table->entries[i]->value);
-        } else {
-            printf("Index %d: Empty\n", i);
+void searchInHash(int key) {
+    int hashIndex = key % tableSize, flag = 0;
+    struct node *myNode;
+    myNode = hashTable[hashIndex].head;
+    if (!myNode) {
+        printf("Search element unavailable in hash table\n");
+        return;
+    }
+    while (myNode != NULL) {
+        if (myNode->key == key) {
+            printf("VoterID : %d\n", myNode->key);
+            printf("Name : %s\n", myNode->name);
+            printf("Age : %d\n", myNode->age);
+            flag = 1;
+            break;
         }
+        myNode = myNode->next;
     }
+    if (!flag)
+        printf("Search element unavailable in hash table\n");
+    return;
 }
-
+void display() {
+    struct node *myNode;
+    int i;
+    for (i = 0; i < tableSize; i++) {
+        if (hashTable[i].count == 0)
+        continue;
+        myNode = hashTable[i].head;
+        if (!myNode)
+            continue;
+        printf("\nData at index %d in Hash Table:\n", i);
+        printf("VoterID Name Age \n");
+        printf("--------------------------------\n");
+            while (myNode != NULL) {
+                printf("%-12d", myNode->key);
+                printf("%-15s", myNode->name);
+                printf("%d\n", myNode->age);
+                myNode = myNode->next;
+            }
+    }
+    return;
+}
 int main() {
-    HashTable table;
-    initializeTable(&table);
-
-    // Insert entries based on user input
-    char key[50];
-    int value;
-
-    printf("Insert entries into the hash table. Enter 'exit' as the key to stop.\n");
-
+    int n, ch, key, age;
+    char name[100];
+    printf("Enter the number of elements:");
+    scanf("%d", &n);
+    tableSize = n;
+    /* create hash table with "n" no of buckets */
+    hashTable = (struct hash *) calloc(n, sizeof(struct hash));
     while (1) {
-        printf("Enter key: ");
-        scanf("%s", key);
-
-        if (strcmp(key, "exit") == 0) {
-            break;
+        printf("\n1. Insertion\t2. Deletion\n");
+        printf("3. Searching\t4. Display\n5. Exit\n");
+        printf("Enter your choice:");
+        scanf("%d", &ch);
+        switch (ch) {
+            case 1:
+                printf("Enter the key value:");
+                scanf("%d", &key);
+                getchar();
+                printf("Name:");
+                fgets(name, 100, stdin);
+                name[strlen(name) - 1] = '\0';
+                printf("Age:");
+                scanf("%d", &age);
+                insertToHash(key, name, age);
+                break;
+            case 2:
+                printf("Enter the key to perform deletion:");
+                scanf("%d", &key);
+                deleteFromHash(key);
+                break;
+            case 3:
+                printf("Enter the key to search:");
+                scanf("%d", &key);
+                searchInHash(key);
+                break;
+            case 4:
+                display();
+                break;
+            case 5:
+                exit(0);
+            default:
+                printf("U have entered wrong option!!\n");
+                break;
         }
-
-        printf("Enter value: ");
-        scanf("%d", &value);
-
-        insert(&table, key, value);
-    }
-
-    // Display the table
-    displayTable(&table);
-
-    // Search for entries based on user input
-    printf("\nSearch for entries in the hash table. Enter 'exit' as the key to stop.\n");
-
-    while (1) {
-        printf("Enter key to search: ");
-        scanf("%s", key);
-
-        if (strcmp(key, "exit") == 0) {
-            break;
         }
-
-        int result = search(&table, key);
-        if (result != -1) {
-            printf("Value for key '%s': %d\n", key, result);
-        } else {
-            printf("Key '%s' not found.\n", key);
-        }
-    }
-
     return 0;
 }

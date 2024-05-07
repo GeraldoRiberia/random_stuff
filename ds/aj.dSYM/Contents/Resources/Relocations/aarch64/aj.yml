@@ -1,0 +1,22 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/vs-code-projects/ds/aj'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _poly1, symObjAddr: 0x0, symBinAddr: 0x10000356C, symSize: 0xEC }
+  - { offsetInCU: 0x3F, offset: 0x3F, size: 0x8, addend: 0x0, symName: _START1, symObjAddr: 0x1908, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0x8D, offset: 0x8D, size: 0x8, addend: 0x0, symName: _LAST1, symObjAddr: 0x1910, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offsetInCU: 0xA2, offset: 0xA2, size: 0x8, addend: 0x0, symName: _t1, symObjAddr: 0x1918, symBinAddr: 0x100008010, symSize: 0x0 }
+  - { offsetInCU: 0xB7, offset: 0xB7, size: 0x8, addend: 0x0, symName: _t2, symObjAddr: 0x1920, symBinAddr: 0x100008018, symSize: 0x0 }
+  - { offsetInCU: 0xCC, offset: 0xCC, size: 0x8, addend: 0x0, symName: _t3, symObjAddr: 0x1928, symBinAddr: 0x100008020, symSize: 0x0 }
+  - { offsetInCU: 0xE1, offset: 0xE1, size: 0x8, addend: 0x0, symName: _START2, symObjAddr: 0x1930, symBinAddr: 0x100008028, symSize: 0x0 }
+  - { offsetInCU: 0xF6, offset: 0xF6, size: 0x8, addend: 0x0, symName: _LAST2, symObjAddr: 0x1938, symBinAddr: 0x100008030, symSize: 0x0 }
+  - { offsetInCU: 0x10B, offset: 0x10B, size: 0x8, addend: 0x0, symName: _START3, symObjAddr: 0x1940, symBinAddr: 0x100008038, symSize: 0x0 }
+  - { offsetInCU: 0x120, offset: 0x120, size: 0x8, addend: 0x0, symName: _LAST3, symObjAddr: 0x1948, symBinAddr: 0x100008040, symSize: 0x0 }
+  - { offsetInCU: 0x135, offset: 0x135, size: 0x8, addend: 0x0, symName: _p, symObjAddr: 0x1950, symBinAddr: 0x100008048, symSize: 0x0 }
+  - { offsetInCU: 0x14A, offset: 0x14A, size: 0x8, addend: 0x0, symName: _q, symObjAddr: 0x1958, symBinAddr: 0x100008050, symSize: 0x0 }
+  - { offsetInCU: 0x16D, offset: 0x16D, size: 0x8, addend: 0x0, symName: _ptr, symBinAddr: 0x100008058, symSize: 0x0 }
+  - { offsetInCU: 0x176, offset: 0x176, size: 0x8, addend: 0x0, symName: _poly1, symObjAddr: 0x0, symBinAddr: 0x10000356C, symSize: 0xEC }
+  - { offsetInCU: 0x18B, offset: 0x18B, size: 0x8, addend: 0x0, symName: _poly2, symObjAddr: 0xEC, symBinAddr: 0x100003658, symSize: 0xEC }
+  - { offsetInCU: 0x1A0, offset: 0x1A0, size: 0x8, addend: 0x0, symName: _result, symObjAddr: 0x1D8, symBinAddr: 0x100003744, symSize: 0x690 }
+  - { offsetInCU: 0x1B5, offset: 0x1B5, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x868, symBinAddr: 0x100003DD4, symSize: 0x9C }
+...

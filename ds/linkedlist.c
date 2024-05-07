@@ -65,7 +65,7 @@ void insert_last()
 }
 
 void insert_key()
-{
+{ 
 	int key;
 	printf("Enter key :");
 	scanf("%d",&key);

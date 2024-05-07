@@ -7,94 +7,153 @@ struct node{
 };
 
 typedef struct node node_;
-
-node_* create_node(int val){
-    node_* ptr = (node_*)malloc(sizeof(node_));
-    ptr->data = val;
+node_* createNode(int value){
+    node_* ptr = malloc(sizeof(node_));
+    ptr->data = value;
     ptr->left = NULL;
-    ptr->right= NULL;
+    ptr->right = NULL;
     return ptr;
 }
 
-node_* insert(node_* root){
-    int val;
-    printf("Enter value : ");
-    scanf("%d",&val);
-    node_ *ptr = create_node(val);
-    if(root == NULL){
-        return ptr;
+node_* insert(node_* root, int val) {
+    node_* newNode = createNode(val);
+    
+    if (root == NULL)
+        return newNode;
+
+    node_* current = root;
+    node_* parent = NULL;
+
+    while (current != NULL) {
+        parent = current;
+        if (val < current->data)
+            current = current->left;
+        else if (val > current->data)
+            current = current->right;
+        else
+            return root;
     }
-    else{
-        node_* prev = NULL,*t = root;
-        if(ptr->data > t->data){
-            prev = t;
-            t= t->right;
-        }
-        else if(ptr->data < t->data){
-            prev = t;
-            t = t->left;
-            
-        }
-        if(prev->data > ptr->data){
-            prev->left = ptr;
-        }
-        else{
-            prev->right = ptr;
-        }
-    }
+
+    if (val < parent->data)
+        parent->left = newNode;
+    else
+        parent->right = newNode;
+
     return root;
 }
 
-void inorder(struct node* node)
-{
-    if (node == NULL)
+void inorder(node_* root){
+    if(root == NULL){
         return;
- 
-    inorder(node->left);
-    printf("%d ", node->data);
-    inorder(node->right);
+    }
+    inorder(root->left);
+    printf("%d  ",root->data);
+    inorder(root->right);
 }
 
-void preorder(node_* nd){
-    if(nd == NULL)
-        return;
-    printf("%d",nd->data);
-    preorder(nd->left);
-    preorder(nd->right);
-}
+node_* delete(node_* root, int key){
+    node_* t = root;
+    node_* prev = NULL;
+    while(t != NULL){
+        if(t->data > key){
+            prev = t;
+            t = t->left;
+        }
+        else if(t->data < key){
+            prev = t;
+            t = t->right;
+        }
+        else{
+            break;
+        }
 
-void postorder(node_* nd){
-    if(nd == NULL)
-        return;
-    postorder(nd->left);
-    postorder(nd->right);
-    printf("%d",nd->data);
+    }
+    if( t == NULL){
+        printf("Key not found");
+        return root;
+    }
+    else{
+        if(t->right == NULL){
+            if(t->left != NULL){
+                prev->right = t->left;
+            }
+            else{
+                if(prev->right == t){
+                    prev->right = t->left;
+                }
+                else{
+                    prev->left = t->left;
+                }
+                free(t);
+                return root;
+            }
+        }
+        else if (t->left == NULL){
+            if(t->right != NULL){
+                prev->right = t->right;
+            }
+            else{
+                if(prev->right == t){
+                    prev->right = t->right;
+                }
+                else{
+                    prev->right = t->left;
+                }
+                free(t);
+                return root;
+            }
+        }
+        else{
+            node_* sprev = t;
+            node_* succ = t->right; 
+
+            while(succ->left != NULL){
+                sprev = succ;
+                succ = succ->left;
+            }
+            if(sprev != t){
+                sprev->left = succ->right;
+            }
+            else{
+                sprev->right = succ->right;
+            }
+            
+            int temp = t->data;
+            t->data = succ->data;
+            succ->data = temp;
+            free(succ);
+            return root;
+
+        }
+
+    }
 }
 
 void main(){
-    node_* root=NULL;
+    node_* root = NULL;
     int val;
     int ch;
-    while(1){
-    printf("Enter choice\n 1. Input\n2.Inorder\n3.Preorder\n4.Postorder");
-    scanf("%d",&ch);
-    switch (ch)
-    {
-    case 1:
-        root = insert(root);
-        break;
-    case 2 :
-        inorder(root);
-        break;
-    case 3 : 
-        preorder(root);
-        break;
-    case 4 :
-        postorder(root);
-        break;
-    
-    default:
-        break;
-    }
-    }
+    /*root = createNode(50);
+    root->left = createNode(30);
+    root->left = createNode(20);
+    root->left->right = createNode(40);
+    root->right = createNode(60);
+    root->right->left = createNode(55);
+    root->right->right = createNode(80);
+    root->right->right->left = createNode(77);*/
+    do{
+        printf("Enter value : "); scanf("%d",&val);
+        root = insert(root,val);
+        printf("enter 0 to exit");
+        scanf("%d",&ch);
+    }while(ch != 0);
+
+
+    printf("Before Deletion \n");
+    inorder(root);
+    printf("\nEnter key : ");
+    int key; scanf("%d",&key);
+    root = delete(root,key);
+    printf("After Deletion \n");
+    inorder(root);
 }
