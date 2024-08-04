@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/adisankar/new'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _sort, symObjAddr: 0x0, symBinAddr: 0x100003144, symSize: 0xFC }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _sort, symObjAddr: 0x0, symBinAddr: 0x100003144, symSize: 0xFC }
+  - { offsetInCU: 0x9D, offset: 0x9D, size: 0x8, addend: 0x0, symName: _fcfs, symObjAddr: 0xFC, symBinAddr: 0x100003240, symSize: 0xE8 }
+  - { offsetInCU: 0xF9, offset: 0xF9, size: 0x8, addend: 0x0, symName: _scan, symObjAddr: 0x1E4, symBinAddr: 0x100003328, symSize: 0x4EC }
+  - { offsetInCU: 0x1B7, offset: 0x1B7, size: 0x8, addend: 0x0, symName: _cscan, symObjAddr: 0x6D0, symBinAddr: 0x100003814, symSize: 0x368 }
+  - { offsetInCU: 0x265, offset: 0x265, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xA38, symBinAddr: 0x100003B7C, symSize: 0x23C }
+...

@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/adisankar/memor'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _firstfit, symObjAddr: 0x0, symBinAddr: 0x100003530, symSize: 0x268 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _firstfit, symObjAddr: 0x0, symBinAddr: 0x100003530, symSize: 0x268 }
+  - { offsetInCU: 0xD8, offset: 0xD8, size: 0x8, addend: 0x0, symName: _worstfit, symObjAddr: 0x268, symBinAddr: 0x100003798, symSize: 0x288 }
+  - { offsetInCU: 0x17F, offset: 0x17F, size: 0x8, addend: 0x0, symName: _bestfit, symObjAddr: 0x4F0, symBinAddr: 0x100003A20, symSize: 0x2BC }
+  - { offsetInCU: 0x226, offset: 0x226, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x7AC, symBinAddr: 0x100003CDC, symSize: 0x1A0 }
+...

@@ -1,0 +1,14 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/adisankar/mem'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _pageIsFound, symObjAddr: 0x0, symBinAddr: 0x100002B9C, symSize: 0x84 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _pageIsFound, symObjAddr: 0x0, symBinAddr: 0x100002B9C, symSize: 0x84 }
+  - { offsetInCU: 0xA1, offset: 0xA1, size: 0x8, addend: 0x0, symName: _fifo, symObjAddr: 0x84, symBinAddr: 0x100002C20, symSize: 0x3F0 }
+  - { offsetInCU: 0x170, offset: 0x170, size: 0x8, addend: 0x0, symName: _recentAccessLRU, symObjAddr: 0x474, symBinAddr: 0x100003010, symSize: 0x8C }
+  - { offsetInCU: 0x1DE, offset: 0x1DE, size: 0x8, addend: 0x0, symName: _lru, symObjAddr: 0x500, symBinAddr: 0x10000309C, symSize: 0x464 }
+  - { offsetInCU: 0x2D4, offset: 0x2D4, size: 0x8, addend: 0x0, symName: _totalAccessed, symObjAddr: 0x964, symBinAddr: 0x100003500, symSize: 0x84 }
+  - { offsetInCU: 0x342, offset: 0x342, size: 0x8, addend: 0x0, symName: _recentAccess, symObjAddr: 0x9E8, symBinAddr: 0x100003584, symSize: 0x8C }
+  - { offsetInCU: 0x3B0, offset: 0x3B0, size: 0x8, addend: 0x0, symName: _lfu, symObjAddr: 0xA74, symBinAddr: 0x100003610, symSize: 0x550 }
+  - { offsetInCU: 0x4E0, offset: 0x4E0, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xFC4, symBinAddr: 0x100003B60, symSize: 0x2A4 }
+...

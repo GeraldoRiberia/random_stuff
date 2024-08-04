@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/adisankarlalan/Documents/GitHub/adisankar/diskscheduling'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _sort, symObjAddr: 0x0, symBinAddr: 0x100003154, symSize: 0xFC }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _sort, symObjAddr: 0x0, symBinAddr: 0x100003154, symSize: 0xFC }
+  - { offsetInCU: 0x9D, offset: 0x9D, size: 0x8, addend: 0x0, symName: _fcfs, symObjAddr: 0xFC, symBinAddr: 0x100003250, symSize: 0xE8 }
+  - { offsetInCU: 0xF9, offset: 0xF9, size: 0x8, addend: 0x0, symName: _scan, symObjAddr: 0x1E4, symBinAddr: 0x100003338, symSize: 0x4D8 }
+  - { offsetInCU: 0x1B7, offset: 0x1B7, size: 0x8, addend: 0x0, symName: _cscan, symObjAddr: 0x6BC, symBinAddr: 0x100003810, symSize: 0x354 }
+  - { offsetInCU: 0x265, offset: 0x265, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xA10, symBinAddr: 0x100003B64, symSize: 0x27C }
+...
